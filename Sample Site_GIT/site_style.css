@@ -1,0 +1,227 @@
+/* This code section is for styling the navigation menu on top of the page */
+/* Top of the page */
+
+/*Common content for website*/
+
+/*This is the general category*/
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header{
+  background-image: url("img1.jpg");
+  width: 100%;
+  height: 10em;
+  padding-top: 34px;
+  color: white;
+  background-size: cover;
+  min-height:100px;
+}
+
+.topnav {
+  font-size: 2em;
+  color: #f1f1f1;
+  letter-spacing: 1px;
+  background-color: black;
+  width: 100%;
+  float: left;
+}
+
+/*this is for button specific infos and active/hover button.*/
+.topnav-button{
+  display: block;
+  color: white;
+  padding: 0.2em 0.5em;
+  float: left;
+  text-align: center;
+  font:verdana;
+} 
+
+.active{
+  background-color: #04AA6D;
+}
+
+.topnav-button:hover:not(.active){
+  background-color: #555;
+  color: white;
+}
+
+/*Shadow for box-style element*/
+.box {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+/* Body of the page. This is general characteristics for most text in the page.*/
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1em;
+  text-align: justify;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+p:last-of-type {
+  margin-bottom: 0px;
+}
+
+/*This part is to adjust header types*/
+h1 {
+  text-align: center;
+  font-size: 3em;
+  font:verdana;
+}
+
+h2 {
+  color: navy;
+  text-align: center;
+  font-size: 2em;
+  margin: 8px;
+  font:verdana;
+}
+
+/*This is to make sure image are fixed to their containers and that they doesn't become too big when zoomed in.*/
+img {
+  width: 100%;
+}
+
+.intext {
+  max-width:800px;
+  max-height:800px;
+}
+
+/*This part determines the main component of the website using a 2-rows model*/
+/*This row section is the three columns. It's a container for the main and the two sides.*/
+.row {
+  min-height:800px;
+  width:100%;
+  display:table;
+}
+
+/*This is the "About section" on the left and the main text on the right. Both side sections are sticky.*/
+.side {
+  width: 100%;
+  background: #ccc;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  font-weight: bold;
+  top: 0px;
+  position: sticky;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*For the hover anim on last page*/
+.anim {
+  color: #ccc;
+}
+
+.anim:hover{
+  color: black;
+  transition: color 2s;
+}
+
+.anim img:hover{
+  opacity:0;
+  transition: opacity 2s;
+}
+
+.main {
+  padding: 12px 20px;
+  width: 57%;
+  margin: 8px 0px;
+  display:table-cell;
+}
+
+.sider{
+  width: 18%;
+  border-left: 0.5px solid #ccc;
+  padding: 20px;
+  position: relative;
+  top:0;
+  min-height: 1500px;
+  display:table-cell;
+}
+
+/*To test, but should help with mobile display.*/
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*For the ads slideshow on the second page. Could be used in any other page.*/
+@keyframes autoplay1 {
+  0% {visibility: visible}
+  50% {visibility: hidden}
+}
+
+.ad {visibility: hidden; animation: 12s autoplay1 infinite; position: absolute;
+  top: 34; left:0}
+  
+.ad:nth-child(2) {animation-delay: 6s}
+
+/*
+
+/* Footing of the page */
+.footer {
+  float: left;
+  letter-spacing: 1px;
+  background: #ccc;
+  width: 100%;
+  margin-bottom: 14px;
+  text-align: center;
+  padding-bottom: 14px;
+  position:relative;
+}
+
+/* for the pen */
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #f2f2f2;
+}
+
+/* waves (Yes someone helped me for that animation!)*/
+.ocean {
+  height: 10em;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+}
+
+.wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23003F7C'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(2) {
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
+
+.wave:nth-of-type(3) {
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes wave {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(-25%);}
+    100% {transform: translateX(-50%);}
+}
