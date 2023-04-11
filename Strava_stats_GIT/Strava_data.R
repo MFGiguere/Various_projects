@@ -28,6 +28,7 @@ df_cleaned <- df %>%
   group_by(month, Activity) %>%
   subset(select=c(month, Activity, Distance, Time, Speed))
 df_tri <- subset(df_cleaned, Activity=="Run" | Activity=="Swim"|Activity=="Ride")
+df_run <- subset(df_cleaned, Activity=="Run")
 
 #3. Aesthetics
 #This create a base graph
@@ -59,6 +60,15 @@ plot <- ggarrange(nb_graph, time_graph, nrow=2, ncol=1,
                   common.legend = TRUE, legend="bottom")
 annotate_figure(plot, top = text_grob("Les activités sportives cumulées de Maxime", hjust=0.5, face="bold", size=16))
 
+#I still plot run speed separatly
+spd_graph <- base_graph + stat_summary(data=df_run, mapping=aes(y=Speed, colour=Activity), linewidth=1.5, geom="line",fun=mean) +
+  geom_smooth(data=df_run, mapping=aes(y=Speed, colour=Activity), linetype="dashed", fill = "NA") +
+  ggtitle("Vitesse") + ylab("k\nm\n/\nh") + scale_colour_manual(values = c("chartreuse3"), 
+                                                              name = "Type d'activitÃ©",
+                                                              labels=c("Course"))  
+ggarrange(spd_graph, nrow=2, ncol=1, 
+          common.legend = TRUE, legend="bottom")
+annotate_figure(spd_graph, top = text_grob("Les activitÃ©s sportives de Maxime", hjust=0.5, face="bold", size=16))
 
 
 #5. Plot data part 2
